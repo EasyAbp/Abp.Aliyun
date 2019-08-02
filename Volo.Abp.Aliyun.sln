@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Volo.Abp.Aliyun.Common", "Volo.Abp.Aliyun.Common\Volo.Abp.Aliyun.Common.csproj", "{EA225FE5-0A69-4CD2-84CF-7E5F4B0CA624}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Volo.Abp.Aliyun.Sms", "Volo.Abp.Aliyun.Sms\Volo.Abp.Aliyun.Sms.csproj", "{805745D9-391E-498D-8AC6-0176AEE6BE23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EA225FE5-0A69-4CD2-84CF-7E5F4B0CA624}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA225FE5-0A69-4CD2-84CF-7E5F4B0CA624}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA225FE5-0A69-4CD2-84CF-7E5F4B0CA624}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA225FE5-0A69-4CD2-84CF-7E5F4B0CA624}.Release|Any CPU.Build.0 = Release|Any CPU
+		{805745D9-391E-498D-8AC6-0176AEE6BE23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{805745D9-391E-498D-8AC6-0176AEE6BE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{805745D9-391E-498D-8AC6-0176AEE6BE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{805745D9-391E-498D-8AC6-0176AEE6BE23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
