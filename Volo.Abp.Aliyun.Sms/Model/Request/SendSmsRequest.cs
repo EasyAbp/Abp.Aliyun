@@ -1,28 +1,35 @@
+using Newtonsoft.Json;
 using Volo.Abp.Aliyun.Common;
 
 namespace Volo.Abp.Aliyun.Sms.Model.Request
 {
+    /// <summary>
+    /// 短信发送请求，如果需要发送单条短信的时候，可以使用本参数请求阿里云 API 进行发送。
+    /// </summary>
     public class SendSmsRequest : CommonRequest
     {
-        public SendSmsRequest(string phone)
+        public SendSmsRequest()
         {
-            
+            RequestParameters["Action"] = "SendSms";
         }
 
-        public string PhoneNumbers { get; set; }
+        public SendSmsRequest(string phoneNumber,
+            string signName,
+            string templateCode,
+            object templateParam) : this(phoneNumber,signName,templateCode,JsonConvert.SerializeObject(templateParam))
+        {
 
-        public string SignName { get; set; }
-
-        public string TemplateCode { get; set; }
-
-        public string AccessKeyId { get; set; }
-
-        public string Action { get; set; }
-
-        public string OutId { get; set; }
-
-        public string SmsUpExtendCode { get; set; }
-
-        public string TemplateParam { get; set; }
+        }
+        
+        public SendSmsRequest(string phoneNumber,
+            string signName,
+            string templateCode,
+            string templateParamJson) : this()
+        {
+            RequestParameters.Add("PhoneNumbers",phoneNumber);
+            RequestParameters.Add("SignName",signName);
+            RequestParameters.Add("TemplateCode",templateCode);
+            RequestParameters.Add("TemplateParam =",templateParamJson);
+        }
     }
 }
