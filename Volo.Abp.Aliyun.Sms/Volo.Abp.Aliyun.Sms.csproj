@@ -8,8 +8,4 @@
       <ProjectReference Include="..\Volo.Abp.Aliyun.Common\Volo.Abp.Aliyun.Common.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Model\Response" />
-    </ItemGroup>
-
 </Project>

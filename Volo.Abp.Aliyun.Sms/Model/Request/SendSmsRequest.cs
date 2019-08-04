@@ -1,3 +1,4 @@
+using System.Net.Http;
 using Newtonsoft.Json;
 using Volo.Abp.Aliyun.Common;
 
@@ -11,6 +12,7 @@ namespace Volo.Abp.Aliyun.Sms.Model.Request
         public SendSmsRequest()
         {
             RequestParameters["Action"] = "SendSms";
+            Method = HttpMethod.Post;
         }
 
         public SendSmsRequest(string phoneNumber,

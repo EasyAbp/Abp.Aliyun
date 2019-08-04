@@ -1,6 +1,6 @@
 using Volo.Abp.Aliyun.Common;
 
-namespace Volo.Abp.Aliyun.Sms.Model.Request
+namespace Volo.Abp.Aliyun.Sms.Model.Response
 {
     public class SendSmsResponse : CommonResponse
     {
@@ -9,7 +9,5 @@ namespace Volo.Abp.Aliyun.Sms.Model.Request
         public string Code { get; set; }
 
         public string Message { get; set; }
-
-        public string RequestId { get; set; }
     }
 }

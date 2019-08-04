@@ -9,7 +9,7 @@ namespace Volo.Abp.Aliyun.Sms
 
         public AbpAliyunSmsOptions()
         {
-            EndPoint = "dysmsapi.aliyuncs.com";
+            EndPoint = "http://dysmsapi.aliyuncs.com";
         }
     }
 }
