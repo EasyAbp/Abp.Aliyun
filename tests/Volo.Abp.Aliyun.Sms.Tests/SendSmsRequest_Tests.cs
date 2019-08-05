@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.Extensions.Options;
 using Shouldly;
 using Volo.Abp.Aliyun.Common;
 using Volo.Abp.Aliyun.Sms.Model.Request;
@@ -11,10 +12,12 @@ namespace Volo.Abp.Aliyun.Sms.Tests
     public class SendSmsRequest_Tests : AbpAliyunTestBase<AbpAliyunSmsTestsModule>
     {
         private readonly IAliyunApiRequester _aliyunApiRequester;
+        private readonly IOptions<AbpAliyunSmsOptions> _abpAliyunSmsOptions;
 
         public SendSmsRequest_Tests()
         {
             _aliyunApiRequester = GetRequiredService<IAliyunApiRequester>();
+            _abpAliyunSmsOptions = GetRequiredService<IOptions<AbpAliyunSmsOptions>>();
         }
         
         [Fact]
@@ -27,7 +30,7 @@ namespace Volo.Abp.Aliyun.Sms.Tests
             });
             
             // Act
-            var result = await _aliyunApiRequester.SendRequestAsync<SendSmsResponse>(request,"");
+            var result = await _aliyunApiRequester.SendRequestAsync<SendSmsResponse>(request,_abpAliyunSmsOptions.Value.EndPoint);
             
             // Assert
             result.ShouldNotBeNull();

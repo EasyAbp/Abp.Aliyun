@@ -13,9 +13,11 @@ namespace Volo.Abp.Aliyun.Common
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly AbpAliyunOptions _abpAliyunOptions;
-        private readonly IGuidGenerator _guidGenerator; 
-        
-        public DefaultAliyunApiRequester(IHttpClientFactory httpClientFactory,IOptions<AbpAliyunOptions> options, IGuidGenerator guidGenerator)
+        private readonly IGuidGenerator _guidGenerator;
+
+        public DefaultAliyunApiRequester(IHttpClientFactory httpClientFactory,
+            IOptions<AbpAliyunOptions> options,
+            IGuidGenerator guidGenerator)
         {
             _httpClientFactory = httpClientFactory;
             _guidGenerator = guidGenerator;

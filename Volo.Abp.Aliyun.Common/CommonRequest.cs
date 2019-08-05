@@ -22,7 +22,7 @@ namespace Volo.Abp.Aliyun.Common
             {
                 {"Format","json"},
                 {"SignatureMethod","HMAC-SHA1"},
-                {"Version","2015-01-09"},
+                {"Version","2017-05-25"},
                 {"SignatureVersion","1.0"},
                 {"Timestamp",DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")},
                 {"Action",""}

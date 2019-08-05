@@ -3,9 +3,13 @@ using Volo.Abp.Modularity;
 
 namespace Volo.Abp.Aliyun.Sms.Tests
 {
-    [DependsOn(typeof(AbpAliyunTestsModule))]
+    [DependsOn(typeof(AbpAliyunTestsModule),
+        typeof(AbpAliyunSmsModule))]
     public class AbpAliyunSmsTestsModule : AbpModule
     {
-        
+        public override void ConfigureServices(ServiceConfigurationContext context)
+        {
+            
+        }
     }
 }

@@ -12,7 +12,8 @@ namespace Volo.Abp.Aliyun.Sms.Model.Request
         public SendSmsRequest()
         {
             RequestParameters["Action"] = "SendSms";
-            Method = HttpMethod.Post;
+            RequestParameters["Version"] = "2017-05-25";
+            Method = HttpMethod.Get;
         }
 
         public SendSmsRequest(string phoneNumber,
