@@ -10,6 +10,10 @@ namespace Volo.Abp.Aliyun.Common
 {
     public abstract class CommonRequest : ICommonRequest
     {
+        /// <summary>
+        /// 表示当前请求模型是否准备就绪，当调用了 <see cref="SetCommonParameters"/> 方法
+        /// 之后，当前属性的值为 true。
+        /// </summary>
         public bool IsSetCommonParameters { get; private set; }
         
         public SortedDictionary<string, string> RequestParameters { get; }
@@ -18,7 +22,7 @@ namespace Volo.Abp.Aliyun.Common
 
         public CommonRequest()
         {
-            RequestParameters = new SortedDictionary<string, string>
+            RequestParameters = new SortedDictionary<string, string>(StringComparer.Ordinal)
             {
                 {"Format","json"},
                 {"SignatureMethod","HMAC-SHA1"},
@@ -52,16 +56,13 @@ namespace Volo.Abp.Aliyun.Common
             var signBuilder= new StringBuilder();
 
             signBuilder.Append(Method)
+                .Append("&")
                 .Append(HttpUtility.UrlEncode("/"))
                 .Append("&")
                 .Append(HttpUtility.UrlEncode(paraStr));
 
-            var signStr = signBuilder.ToString()
-                .Replace("%2f", "%2F")
-                .Replace("%3d", "%3D")
-                .Replace("%2b", "%2B")
-                .Replace("%253a", "%253A");
-            
+            var signStr = SpecialUrlEncode(signBuilder.ToString());
+                
             var hmac = new HMACSHA1(Encoding.UTF8.GetBytes($"{accessKey}&"));
             signStr = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(signStr)));
             
@@ -102,6 +103,17 @@ namespace Volo.Abp.Aliyun.Common
         public virtual bool IsReady()
         {
             return IsSetCommonParameters;
+        }
+
+        private string SpecialUrlEncode(string srcStr)
+        {
+            return srcStr.Replace("%2f", "%2F")
+                .Replace("%3d", "%3D")
+                .Replace("%2b", "%2B")
+                .Replace("%253a", "%253A")
+                .Replace("+","%20")
+                .Replace("*","%2A")
+                .Replace("%7E","~");
         }
     }
 }
