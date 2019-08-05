@@ -32,7 +32,7 @@ namespace Volo.Abp.Aliyun.Sms.Model.Request
             RequestParameters.Add("PhoneNumbers",phoneNumber);
             RequestParameters.Add("SignName",signName);
             RequestParameters.Add("TemplateCode",templateCode);
-            RequestParameters.Add("TemplateParam =",templateParamJson);
+            RequestParameters.Add("TemplateParam",templateParamJson);
         }
     }
 }
