@@ -17,6 +17,13 @@ namespace Zony.Abp.Aliyun.Sms.Model.Request
             Method = HttpMethod.Get;
         }
 
+        /// <summary>
+        /// 向指定的号码发送短信。
+        /// </summary>
+        /// <param name="phoneNumber">手机号码。</param>
+        /// <param name="signName">短信签名。</param>
+        /// <param name="templateCode">短信模版编码。</param>
+        /// <param name="templateParam">短信模版内容。</param>
         public SendSmsRequest(string phoneNumber,
             string signName,
             string templateCode,
@@ -25,6 +32,13 @@ namespace Zony.Abp.Aliyun.Sms.Model.Request
 
         }
         
+        /// <summary>
+        /// 向指定的号码发送短信。
+        /// </summary>
+        /// <param name="phoneNumber">手机号码。</param>
+        /// <param name="signName">短信签名。</param>
+        /// <param name="templateCode">短信模版编码。</param>
+        /// <param name="templateParam">短信模版内容。</param>
         public SendSmsRequest(string phoneNumber,
             string signName,
             string templateCode,
