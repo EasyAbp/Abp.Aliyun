@@ -17,7 +17,7 @@
         <PackageVersion>1.0.0</PackageVersion>
         <Version>1.0.0</Version>
 
-        <GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     </PropertyGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
