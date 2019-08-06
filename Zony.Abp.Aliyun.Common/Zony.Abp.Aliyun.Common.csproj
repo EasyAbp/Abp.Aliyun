@@ -2,6 +2,27 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+
+        <Title>Zony.Abp.Aliyun.Common</Title>
+        <Authors>Zony</Authors>
+        <Description>定义了阿里云 API 接口访问的基本类型。</Description>
+        <RepositoryType>git</RepositoryType>
+
+        <PackageTags>aliyun;alicloud;asp.net;asp.net mvc;asp.net core;.net core;abp vnext;abp</PackageTags>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/GameBelial/Zony.Abp.Aliyun</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/GameBelial/Zony.Abp.Aliyun</RepositoryUrl>
+        <PackageLicenseUrl>https://github.com/GameBelial/Zony.Abp.Aliyun/blob/master/LICENSE</PackageLicenseUrl>
+
+        <PackageVersion>1.0.0</PackageVersion>
+        <Version>1.0.0</Version>
+
+        <GenerateAppxPackageOnBuild>true</GenerateAppxPackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\Zony.Abp.Aliyun.Common.xml</DocumentationFile>
+      <NoWarn>1701;1702;1519</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
