@@ -7,9 +7,6 @@ namespace Zony.Abp.Aliyun.Sms.Tests
         typeof(AbpAliyunSmsModule))]
     public class AbpAliyunSmsTestsModule : AbpModule
     {
-        public override void ConfigureServices(ServiceConfigurationContext context)
-        {
-            
-        }
+        
     }
 }

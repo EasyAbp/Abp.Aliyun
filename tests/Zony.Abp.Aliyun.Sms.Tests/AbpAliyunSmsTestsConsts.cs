@@ -2,9 +2,6 @@ namespace Zony.Abp.Aliyun.Sms.Tests
 {
     public class AbpAliyunSmsTestsConsts
     {
-        public const string AccessKeyId = "";
-        public const string AccessKeySecret = "";
-
         public const string TargetPhoneNumber = "1500000000";
 
         public const string CompanyName = "XXXX 科技有限公司";

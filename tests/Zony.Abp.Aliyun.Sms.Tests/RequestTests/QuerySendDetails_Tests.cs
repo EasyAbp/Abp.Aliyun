@@ -1,32 +1,13 @@
 using System.Threading.Tasks;
-using Microsoft.Extensions.Options;
 using Shouldly;
 using Xunit;
-using Zony.Abp.Aliyun.Common;
-using Zony.Abp.Aliyun.Common.Configurations;
 using Zony.Abp.Aliyun.Sms.Model.Request;
 using Zony.Abp.Aliyun.Sms.Model.Response;
-using Zony.Abp.Aliyun.Tests;
 
 namespace Zony.Abp.Aliyun.Sms.Tests.RequestTests
 {
-    public class QuerySendDetails_Tests : AbpAliyunTestBase<AbpAliyunSmsTestsModule>
+    public class QuerySendDetails_Tests : AbpAliyunSmsTestBase
     {
-        private readonly IAliyunApiRequester _aliyunApiRequester;
-        
-        private readonly AbpAliyunSmsOptions _abpAliyunSmsOptions;
-        private readonly AbpAliyunOptions _aliyunOptions;
-
-        public QuerySendDetails_Tests()
-        {
-            _aliyunApiRequester = GetRequiredService<IAliyunApiRequester>();
-            _abpAliyunSmsOptions = GetRequiredService<IOptions<AbpAliyunSmsOptions>>().Value;
-            _aliyunOptions = GetRequiredService<IOptions<AbpAliyunOptions>>().Value;
-
-            _aliyunOptions.AccessKeyId = AbpAliyunSmsTestsConsts.AccessKeyId;
-            _aliyunOptions.AccessKeySecret = AbpAliyunSmsTestsConsts.AccessKeySecret;
-        }
-        
         [Fact]
         public async Task Should_Return_Code_OK()
         {
@@ -37,8 +18,8 @@ namespace Zony.Abp.Aliyun.Sms.Tests.RequestTests
                 1);
             
             // Act
-            var result = await _aliyunApiRequester.SendRequestAsync<QuerySendDetailsResponse>(request,
-                _abpAliyunSmsOptions.EndPoint);
+            var result = await AliyunApiRequester.SendRequestAsync<QuerySendDetailsResponse>(request,
+                AbpAliyunSmsOptions.EndPoint);
             
             // Assert
             result.ShouldNotBeNull();
