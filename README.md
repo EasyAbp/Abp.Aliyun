@@ -27,6 +27,6 @@ public class TestWebModule : AbpModule
 
 ## 三、API 使用说明
 
-- **[短信服务(Short Message Service)]()**
+- **[短信服务(Short Message Service)](./doc/Sms.md)**
 - **[云解析 DNS(Alibaba Cloud DNS)]()**
 
