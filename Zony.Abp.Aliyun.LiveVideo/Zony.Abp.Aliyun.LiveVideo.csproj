@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>Zony.Abp.Aliyun.LiveVideo</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Zony.Abp.Aliyun.Common\Zony.Abp.Aliyun.Common.csproj" />
+    </ItemGroup>
+
+</Project>
