@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+
+        <Title>EasyAbp.Abp.Aliyun.Common</Title>
+        <Authors>EasyAbp</Authors>
+        <Description>封装了阿里云短信服务的 API 接口实现，用户只需要集成本接口就可以发送短信。</Description>
+        <RepositoryType>git</RepositoryType>
+        
+        <PackageTags>aliyun;sms;asp.net;asp.net mvc;asp.net core;.net core;abp vnext;abp</PackageTags>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <PackageProjectUrl>https://github.com/GameBelial/EasyAbp.Abp.Aliyun</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/GameBelial/EasyAbp.Abp.Aliyun</RepositoryUrl>
+        <PackageLicenseUrl>https://github.com/GameBelial/EasyAbp.Abp.Aliyun/blob/master/LICENSE</PackageLicenseUrl>
+        
+        <PackageVersion>1.0.0</PackageVersion>
+        <Version>1.0.0</Version>
+
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <NoWarn>1701;1702;1591</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\EasyAbp.Abp.Aliyun.Sms.xml</DocumentationFile>
+    </PropertyGroup>
+    
+    <ItemGroup>
+      <ProjectReference Include="..\EasyAbp.Abp.Aliyun.Common\EasyAbp.Abp.Aliyun.Common.csproj" />
+    </ItemGroup>
+
+</Project>

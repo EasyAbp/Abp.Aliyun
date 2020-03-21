@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>EasyAbp.Abp.Aliyun.LiveVideo</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EasyAbp.Abp.Aliyun.Common\EasyAbp.Abp.Aliyun.Common.csproj" />
+    </ItemGroup>
+
+</Project>

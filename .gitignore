@@ -427,6 +427,6 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
-/.idea/.idea.Zony.Abp.Aliyun/.idea/modules.xml
-/.idea/.idea.Zony.Abp.Aliyun/.idea/projectSettingsUpdater.xml
-/.idea/.idea.Zony.Abp.Aliyun/riderModule.iml
+/.idea/.idea.EasyAbp.Abp.Aliyun/.idea/modules.xml
+/.idea/.idea.EasyAbp.Abp.Aliyun/.idea/projectSettingsUpdater.xml
+/.idea/.idea.EasyAbp.Abp.Aliyun/riderModule.iml
