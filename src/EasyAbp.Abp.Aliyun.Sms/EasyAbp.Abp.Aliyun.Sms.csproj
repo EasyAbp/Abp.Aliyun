@@ -4,7 +4,7 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-        <RootNamespace>EasyAbp.Abp.Aliyun.LiveVideo</RootNamespace>
+        <RootNamespace>EasyAbp.Abp.Aliyun.Sms</RootNamespace>
         <Description>ABP vNext阿里云SDK模块，集成本接口即可使用阿里云短信服务。</Description>
     </PropertyGroup>
 

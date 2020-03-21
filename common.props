@@ -8,7 +8,7 @@
     <Description>专门为 ABP vNext 框架开发的阿里云 SDK 模块。</Description>
     <PackageProjectUrl>https://github.com/EasyAbp/Abp.Aliyun</PackageProjectUrl>
     <RepositoryUrl>https://github.com/EasyAbp/Abp.Aliyun</RepositoryUrl>
-    <PackageTags>abp module easyabp aliyun alicloud zony</PackageTags>
+    <PackageTags>abp module easyabp aliyun alicloud sdk zony</PackageTags>
     <Company>EasyAbp</Company>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
   </PropertyGroup>
