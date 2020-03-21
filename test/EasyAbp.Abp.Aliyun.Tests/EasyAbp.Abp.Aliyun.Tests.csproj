@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+    <Import Project="..\..\common.props" />
+    
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
-
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
@@ -18,7 +19,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\EasyAbp.Abp.Aliyun.Common\EasyAbp.Abp.Aliyun.Common.csproj" />
+        <ProjectReference Include="..\..\src\EasyAbp.Abp.Aliyun.Common\EasyAbp.Abp.Aliyun.Common.csproj" />
     </ItemGroup>
 
 </Project>

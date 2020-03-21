@@ -1,12 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+    <Import Project="..\..\common.props" />
+
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
         <RootNamespace>EasyAbp.Abp.Aliyun.LiveVideo</RootNamespace>
+        <Description>ABP vNext阿里云SDK模块，集成本接口即可使用阿里云直播服务。</Description>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\EasyAbp.Abp.Aliyun.Common\EasyAbp.Abp.Aliyun.Common.csproj" />
+        <ProjectReference Include="..\EasyAbp.Abp.Aliyun.Common\EasyAbp.Abp.Aliyun.Common.csproj" />
     </ItemGroup>
 
 </Project>
