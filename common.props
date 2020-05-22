@@ -10,7 +10,7 @@
     <RepositoryUrl>https://github.com/EasyAbp/Abp.Aliyun</RepositoryUrl>
     <PackageTags>abp module easyabp aliyun alicloud sdk zony</PackageTags>
     <Company>EasyAbp</Company>
-    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
