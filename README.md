@@ -1,4 +1,9 @@
-# EasyAbp.Abp.Aliyun
+# Abp.Aliyun
+
+[![NuGet](https://img.shields.io/nuget/v/EasyAbp.Abp.Aliyun.Common.svg?style=flat-square)](https://www.nuget.org/packages/EasyAbp.Abp.Aliyun.Common)
+[![NuGet Download](https://img.shields.io/nuget/dt/EasyAbp.Abp.Aliyun.Common.svg?style=flat-square)](https://www.nuget.org/packages/EasyAbp.Abp.Aliyun.Common)
+
+专门为 ABP vNext 框架开发的阿里云 SDK 模块。
 
 ## 一、简要介绍
 
