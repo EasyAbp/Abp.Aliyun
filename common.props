@@ -1,11 +1,12 @@
 <Project>
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <Version>1.0.2</Version>
+    <Version>1.0.5</Version>
     <NoWarn>$(NoWarn);CS1591</NoWarn>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>EasyAbp Team</Authors>
     <Description>专门为 ABP vNext 框架开发的阿里云 SDK 模块。</Description>
+    <PackageIconUrl>https://avatars3.githubusercontent.com/u/58311641?s=128</PackageIconUrl>
     <PackageProjectUrl>https://github.com/EasyAbp/Abp.Aliyun</PackageProjectUrl>
     <RepositoryUrl>https://github.com/EasyAbp/Abp.Aliyun</RepositoryUrl>
     <PackageTags>abp module easyabp aliyun alicloud sdk zony</PackageTags>
