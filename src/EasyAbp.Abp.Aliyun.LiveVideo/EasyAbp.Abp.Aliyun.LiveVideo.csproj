@@ -3,7 +3,7 @@
     <Import Project="..\..\common.props" />
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
         <RootNamespace>EasyAbp.Abp.Aliyun.LiveVideo</RootNamespace>
         <Description>ABP vNext阿里云SDK模块，集成本接口即可使用阿里云直播服务。</Description>
     </PropertyGroup>
