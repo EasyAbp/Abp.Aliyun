@@ -3,7 +3,7 @@
     <Import Project="..\..\common.props" />
 
     <PropertyGroup>
-        <TargetFramework>net5.0</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <RootNamespace>EasyAbp.Abp.Aliyun.Sms</RootNamespace>
         <Description>ABP vNext阿里云SDK模块，集成本接口即可使用阿里云短信服务。</Description>
     </PropertyGroup>
