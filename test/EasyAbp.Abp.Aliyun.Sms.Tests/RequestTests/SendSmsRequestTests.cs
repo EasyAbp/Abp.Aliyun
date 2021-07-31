@@ -6,19 +6,19 @@ using EasyAbp.Abp.Aliyun.Sms.Model.Response;
 
 namespace EasyAbp.Abp.Aliyun.Sms.Tests.RequestTests
 {
-    public class QuerySendDetails_Tests : AbpAliyunSmsTestBase
+    public class SendSmsRequestTests : AbpAliyunSmsTestBase
     {
         [Fact]
         public async Task Should_Return_Code_OK()
         {
             // Arrange
-            var request = new QuerySendDetailsRequest(AbpAliyunSmsTestsConsts.TargetPhoneNumber, 
-                "20190801",
-                20, 
-                1);
+            var request = new SendSmsRequest(AbpAliyunSmsTestsConsts.TargetPhoneNumber, 
+                AbpAliyunSmsTestsConsts.CompanyName,
+                AbpAliyunSmsTestsConsts.TemplateCode, 
+                AbpAliyunSmsTestsConsts.TemplateParamJson);
             
             // Act
-            var result = await AliyunApiRequester.SendRequestAsync<QuerySendDetailsResponse>(request,
+            var result = await AliyunApiRequester.SendRequestAsync<SendSmsResponse>(request,
                 AbpAliyunSmsOptions.EndPoint);
             
             // Assert
