@@ -12,14 +12,14 @@
 
 | API          | 功能         | 是否支持                                                     |
 | ------------ | ------------ | ------------------------------------------------------------ |
-| SendBatchSms | 批量发送短信 | ![NotSupport](https://img.shields.io/badge/-%E4%B8%8D%E6%94%AF%E6%8C%81-red.svg) |
+| SendBatchSms | 批量发送短信 | ![Support](https://img.shields.io/badge/-支持-brightgreen.svg) |
 | SendSms      | 发送短信     | ![Support](https://img.shields.io/badge/-支持-brightgreen.svg) |
 
 #### 2.1.2 查询发送记录
 
 | API              | 功能             | 是否支持                                                     |
 | ---------------- | ---------------- | ------------------------------------------------------------ |
-| QuerySendDetails | 查询短信发送状态 | ![NotSupport](https://img.shields.io/badge/-%E4%B8%8D%E6%94%AF%E6%8C%81-red.svg) |
+| QuerySendDetails | 查询短信发送状态 | ![Support](https://img.shields.io/badge/-支持-brightgreen.svg) |
 
 #### 2.1.3 短信签名
 
@@ -52,10 +52,4 @@
 
 ### 三、功能的用法
 
-### 3.1 发送短信
-
-#### 3.1.1 单条短信发送
-
-
-
-#### 3.1.2 批量短信发送
+TODO
