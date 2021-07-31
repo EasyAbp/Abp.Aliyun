@@ -133,5 +133,20 @@ namespace EasyAbp.Abp.Aliyun.Common.Model
 
             return stringBuilder.ToString();
         }
+
+        /// <summary>
+        /// 添加新的请求参数，如果 <paramref name="value"/> 为空或者空字符串，则不进行添加。
+        /// </summary>
+        /// <param name="name">需要添加的参数名称。</param>
+        /// <param name="value">需要添加的参数值。</param>
+        public void AddParameter(string name,string value)
+        {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(value))
+            {
+                return;
+            }
+            
+            RequestParameters.Add(name,value);
+        }
     }
 }

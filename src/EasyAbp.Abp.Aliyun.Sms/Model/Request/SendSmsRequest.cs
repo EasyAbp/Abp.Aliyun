@@ -1,6 +1,5 @@
 using System.Net.Http;
 using Newtonsoft.Json;
-using EasyAbp.Abp.Aliyun.Common;
 using EasyAbp.Abp.Aliyun.Common.Model;
 
 namespace EasyAbp.Abp.Aliyun.Sms.Model.Request
@@ -38,7 +37,7 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request
         /// <param name="phoneNumber">手机号码。</param>
         /// <param name="signName">短信签名。</param>
         /// <param name="templateCode">短信模版编码。</param>
-        /// <param name="templateParam">短信模版内容。</param>
+        /// <param name="templateParamJson">短信模版内容。</param>
         public SendSmsRequest(string phoneNumber,
             string signName,
             string templateCode,
