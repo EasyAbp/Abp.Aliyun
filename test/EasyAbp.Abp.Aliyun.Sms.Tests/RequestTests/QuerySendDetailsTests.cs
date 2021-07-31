@@ -13,7 +13,7 @@ namespace EasyAbp.Abp.Aliyun.Sms.Tests.RequestTests
         {
             // Arrange
             var request = new QuerySendDetailsRequest(AbpAliyunSmsTestsConsts.TargetPhoneNumber, 
-                "20190801",
+                "20210731",
                 20, 
                 1);
             

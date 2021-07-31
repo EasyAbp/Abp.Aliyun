@@ -18,7 +18,7 @@ namespace EasyAbp.Abp.Aliyun.Sms.Tests.RequestTests
                 new[]{AbpAliyunSmsTestsConsts.TemplateParamJson});
             
             // Act
-            var result = await AliyunApiRequester.SendRequestAsync<SendSmsResponse>(request,
+            var result = await AliyunApiRequester.SendRequestAsync<SmsCommonResponse>(request,
                 AbpAliyunSmsOptions.EndPoint);
             
             // Assert
