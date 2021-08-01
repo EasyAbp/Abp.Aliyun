@@ -22,7 +22,7 @@ namespace EasyAbp.Abp.Aliyun.Sms.Tests.RequestTests
             response.ShouldNotBeNull();
             response.Code.ShouldBe("OK");
         }
-        
+
         [Fact]
         public async Task ModifySmsSign_Test()
         {
@@ -47,6 +47,19 @@ namespace EasyAbp.Abp.Aliyun.Sms.Tests.RequestTests
 
             response.ShouldNotBeNull();
             response.Code.ShouldBe("OK");
+        }
+
+        [Fact]
+        public async Task QuerySmsSign_Test()
+        {
+            var request = new QuerySmsSignRequest("成都中飞物联测试");
+
+            var response = await AliyunApiRequester.SendRequestAsync<QuerySmsSignResponse>(request, AbpAliyunSmsOptions.EndPoint);
+
+            response.ShouldNotBeNull();
+            response.Code.ShouldBe("OK");
+            response.Reason.ShouldNotBeNullOrEmpty();
+            response.SignStatus.ShouldBeInRange(0, 2);
         }
     }
 }

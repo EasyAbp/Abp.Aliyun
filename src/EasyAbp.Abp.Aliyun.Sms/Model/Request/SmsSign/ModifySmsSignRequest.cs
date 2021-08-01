@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Net.Http;
 using EasyAbp.Abp.Aliyun.Common.Model;
 
 namespace EasyAbp.Abp.Aliyun.Sms.Model.Request.SmsSign
@@ -16,6 +17,9 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request.SmsSign
         /// </summary>
         protected ModifySmsSignRequest()
         {
+            RequestParameters["Action"] = "ModifySmsSign";
+            RequestParameters["Version"] = "2017-05-25";
+            Method = HttpMethod.Get;
         }
 
         /// <summary>
