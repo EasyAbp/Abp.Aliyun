@@ -1,5 +1,4 @@
 using System.Net.Http;
-using EasyAbp.Abp.Aliyun.Common;
 using EasyAbp.Abp.Aliyun.Common.Model;
 
 namespace EasyAbp.Abp.Aliyun.Sms.Model.Request
@@ -17,7 +16,7 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request
         /// 调用 QuerySendDetails 接口，查看短信发送记录和发送状态。
         /// </summary>
         /// <remarks>
-        /// 具体 API 说明信息，可以参考阿里云官方文档: https://help.aliyun.com/document_detail/102352.html?spm=a2c4g.11186623.6.635.550965f4WeL380。<br/>
+        /// 具体 API 说明信息，可以参考阿里云官方文档: https://help.aliyun.com/document_detail/102352.html。<br/>
         /// 可以根据短信发送日期查看发送记录和短信内容，也可以添加发送流水号，根据流水号查询指定日期指定请求的发送详情。<br/>
         /// 如果指定日期短信发送量较大，可以分页查看。指定每页显示的短信详情数量和查看的页数，即可分页查看发送记录。
         /// </remarks>

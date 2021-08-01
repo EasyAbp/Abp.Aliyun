@@ -139,14 +139,14 @@ namespace EasyAbp.Abp.Aliyun.Common.Model
         /// </summary>
         /// <param name="name">需要添加的参数名称。</param>
         /// <param name="value">需要添加的参数值。</param>
-        public void AddParameter(string name,string value)
+        public void AddParameter(string name, string value)
         {
             if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(value))
             {
                 return;
             }
-            
-            RequestParameters.Add(name,value);
+
+            RequestParameters.Add(name, value);
         }
     }
 }
