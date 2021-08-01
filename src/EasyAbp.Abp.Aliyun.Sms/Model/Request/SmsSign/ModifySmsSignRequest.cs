@@ -1,30 +1,25 @@
 using System.Collections.Generic;
-using System.Net.Http;
 using EasyAbp.Abp.Aliyun.Common.Model;
 
 namespace EasyAbp.Abp.Aliyun.Sms.Model.Request.SmsSign
 {
     /// <summary>
-    /// 用于申请短信签名的请求定义。<br/>
-    /// 具体 API 说明信息，可以参考阿里云官方文档: https://help.aliyun.com/document_detail/121207.html。<br/>
-    /// 您可以通过短信服务 AP 接口或短信服务控制台申请短信签名，签名需要符合个人用户签名规范或企业用户签名规范。<br/>
-    /// 短信签名审核流程请参见签名审核流程。<br/>
-    /// 个人用户每天最多可以申请一个短信签名，适用场景默认为 通用。企业用户每天最多可以申请100个签名。
+    /// 用于修改未审核通过的短信签名证明文件，并重新提交审核。<br/>
+    /// 具体 API 说明信息，可以参考阿里云官方文档: https://help.aliyun.com/document_detail/121212.html。<br/>
+    /// 申请短信签名后，如果签名未通过审核，可以通过本接口修改短信签名证明文件，并重新申请，提交审核。<br/>
+    /// 签名需要符合个人用户签名规范或企业用户签名规范。短信签名审核流程请参见签名审核流程。
     /// </summary>
-    public class AddSmsSignRequest : CommonRequest
+    public class ModifySmsSignRequest : CommonRequest
     {
         /// <summary>
-        /// 构造一个新的 <see cref="AddSmsSignRequest"/> 对象。
+        /// 构造一个新的 <see cref="ModifySmsSignRequest"/> 对象。
         /// </summary>
-        protected AddSmsSignRequest()
+        protected ModifySmsSignRequest()
         {
-            RequestParameters["Action"] = "AddSmsSign";
-            RequestParameters["Version"] = "2017-05-25";
-            Method = HttpMethod.Get;
         }
 
         /// <summary>
-        /// 构造一个新的 <see cref="AddSmsSignRequest"/> 对象。
+        /// 构造一个新的 <see cref="ModifySmsSignRequest"/> 对象。
         /// </summary>
         /// <param name="signName">
         /// 签名名称。<br/>
@@ -48,7 +43,7 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request.SmsSign
         /// 签名的资质证明文件经base64编码后的字符串。图片不超过2 MB。<br/>
         /// 个别场景下，申请签名需要上传证明文件。详细说明请参见个人用户签名规范和企业用户签名规范。
         /// </param>
-        public AddSmsSignRequest(string signName,
+        public ModifySmsSignRequest(string signName,
             int signSource,
             string remark,
             IEnumerable<string> fileSuffix,

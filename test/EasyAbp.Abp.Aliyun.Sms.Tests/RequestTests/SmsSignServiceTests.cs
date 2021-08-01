@@ -22,6 +22,21 @@ namespace EasyAbp.Abp.Aliyun.Sms.Tests.RequestTests
             response.ShouldNotBeNull();
             response.Code.ShouldBe("OK");
         }
+        
+        [Fact]
+        public async Task ModifySmsSign_Test()
+        {
+            var request = new ModifySmsSignRequest("成都中飞物联测试",
+                0,
+                "备注说明",
+                new[] {"1"},
+                new[] {"2"});
+
+            var response = await AliyunApiRequester.SendRequestAsync<SmsSignOperationResponse>(request, AbpAliyunSmsOptions.EndPoint);
+
+            response.ShouldNotBeNull();
+            response.Code.ShouldBe("OK");
+        }
 
         [Fact]
         public async Task DeleteSmsSign_Test()
