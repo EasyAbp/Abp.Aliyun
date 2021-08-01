@@ -2,7 +2,7 @@ using EasyAbp.Abp.Aliyun.Common.Model;
 
 namespace EasyAbp.Abp.Aliyun.Sms.Model.Response.SmsSign
 {
-    public class AddSmsSignResponse : CommonResponse
+    public class SmsSignOperationResponse : CommonResponse
     {
         /// <summary>
         /// 签名名称。

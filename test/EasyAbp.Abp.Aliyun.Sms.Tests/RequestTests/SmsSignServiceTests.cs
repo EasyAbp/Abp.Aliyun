@@ -17,7 +17,18 @@ namespace EasyAbp.Abp.Aliyun.Sms.Tests.RequestTests
                 new[] {"1"},
                 new[] {"2"});
 
-            var response = await AliyunApiRequester.SendRequestAsync<AddSmsSignResponse>(request, AbpAliyunSmsOptions.EndPoint);
+            var response = await AliyunApiRequester.SendRequestAsync<SmsSignOperationResponse>(request, AbpAliyunSmsOptions.EndPoint);
+
+            response.ShouldNotBeNull();
+            response.Code.ShouldBe("OK");
+        }
+
+        [Fact]
+        public async Task DeleteSmsSign_Test()
+        {
+            var request = new DeleteSmsSignRequest("成都中飞物联测试");
+
+            var response = await AliyunApiRequester.SendRequestAsync<SmsSignOperationResponse>(request, AbpAliyunSmsOptions.EndPoint);
 
             response.ShouldNotBeNull();
             response.Code.ShouldBe("OK");

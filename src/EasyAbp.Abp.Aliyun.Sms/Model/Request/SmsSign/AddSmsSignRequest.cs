@@ -5,7 +5,7 @@ using EasyAbp.Abp.Aliyun.Common.Model;
 namespace EasyAbp.Abp.Aliyun.Sms.Model.Request.SmsSign
 {
     /// <summary>
-    /// 用于申请短信签名的请求定义。
+    /// 用于申请短信签名的请求定义。<br/>
     /// 具体 API 说明信息，可以参考阿里云官方文档: https://help.aliyun.com/document_detail/121207.html。<br/>
     /// 您可以通过短信服务 AP 接口或短信服务控制台申请短信签名，签名需要符合个人用户签名规范或企业用户签名规范。<br/>
     /// 短信签名审核流程请参见签名审核流程。
