@@ -43,7 +43,7 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request.SmsTemplate
         public AddSmsTemplateRequest(string templateType,
             string templateName,
             string templateContent,
-            string remark)
+            string remark) : this()
         {
             AddParameter("TemplateType", templateType);
             AddParameter("TemplateName", templateName);

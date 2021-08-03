@@ -22,7 +22,7 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request.SmsTemplate
         /// 构造一个新的 <see cref="DeleteSmsTemplateRequest"/> 对象。
         /// </summary>
         /// <param name="templateCode">短信模板 CODE。您可以在控制台模板管理页面或 API 接口 AddSmsTemplate 的返回参数中获取短信模板 CODE。</param>
-        public DeleteSmsTemplateRequest(string templateCode)
+        public DeleteSmsTemplateRequest(string templateCode) : this()
         {
             AddParameter("TemplateCode", templateCode);
         }
