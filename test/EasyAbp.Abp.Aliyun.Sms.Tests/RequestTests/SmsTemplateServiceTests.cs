@@ -36,5 +36,16 @@ namespace EasyAbp.Abp.Aliyun.Sms.Tests.RequestTests
             response.ShouldNotBeNull();
             response.Code.ShouldBe("OK");
         }
+
+        [Fact]
+        public async Task DeleteSmsTemplate_Test()
+        {
+            var request = new DeleteSmsTemplateRequest("SMS_TEST_CODE");
+
+            var response = await AliyunApiRequester.SendRequestAsync<SmsTemplateOperationResponse>(request, AbpAliyunSmsOptions.EndPoint);
+
+            response.ShouldNotBeNull();
+            response.Code.ShouldBe("OK");
+        }
     }
 }
