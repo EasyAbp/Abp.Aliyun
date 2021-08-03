@@ -19,7 +19,7 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request.SmsTemplate
         /// </summary>
         protected AddSmsTemplateRequest()
         {
-            RequestParameters["Action"] = "AddSmsSign";
+            RequestParameters["Action"] = "AddSmsTemplate";
             RequestParameters["Version"] = "2017-05-25";
             Method = HttpMethod.Get;
         }
