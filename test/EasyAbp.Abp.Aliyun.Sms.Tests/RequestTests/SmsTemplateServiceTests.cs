@@ -12,9 +12,24 @@ namespace EasyAbp.Abp.Aliyun.Sms.Tests.RequestTests
         public async Task AddSmsTemplate_Test()
         {
             var request = new AddSmsTemplateRequest("0",
-                "SMS_TEST_CODE",
+                "测试验证码短信模板",
                 "我是一条测试验证码短信模板 {code}",
                 "我是一条测试备注信息。");
+
+            var response = await AliyunApiRequester.SendRequestAsync<SmsTemplateOperationResponse>(request, AbpAliyunSmsOptions.EndPoint);
+
+            response.ShouldNotBeNull();
+            response.Code.ShouldBe("OK");
+        }
+
+        [Fact]
+        public async Task ModifySmsTemplate_Test()
+        {
+            var request = new ModifySmsTemplateRequest("0",
+                "(改)测试验证码短信模板",
+                "(改)我是一条测试验证码短信模板 {code}",
+                "(改)我是一条测试备注信息。",
+                "SMS_TEST_CODE");
 
             var response = await AliyunApiRequester.SendRequestAsync<SmsTemplateOperationResponse>(request, AbpAliyunSmsOptions.EndPoint);
 
