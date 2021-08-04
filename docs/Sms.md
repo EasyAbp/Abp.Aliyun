@@ -34,10 +34,10 @@
 
 | API               | 功能                   | 是否支持                                                     |
 | ----------------- | ---------------------- | ------------------------------------------------------------ |
-| AddSmsTemplate    | 申请短信模板           | ![NotSupport](https://img.shields.io/badge/-%E4%B8%8D%E6%94%AF%E6%8C%81-red.svg) |
-| DeleteSmsTemplate | 删除短信模板           | ![NotSupport](https://img.shields.io/badge/-%E4%B8%8D%E6%94%AF%E6%8C%81-red.svg) |
-| ModifySmsTemplate | 修改未审核的短信模板   | ![NotSupport](https://img.shields.io/badge/-%E4%B8%8D%E6%94%AF%E6%8C%81-red.svg) |
-| QuerySmsTemplate  | 查询短信模板的审核状态 | ![NotSupport](https://img.shields.io/badge/-%E4%B8%8D%E6%94%AF%E6%8C%81-red.svg) |
+| AddSmsTemplate    | 申请短信模板           | ![Support](https://img.shields.io/badge/-支持-brightgreen.svg) |
+| DeleteSmsTemplate | 删除短信模板           | ![Support](https://img.shields.io/badge/-支持-brightgreen.svg) |
+| ModifySmsTemplate | 修改未审核的短信模板   | ![Support](https://img.shields.io/badge/-支持-brightgreen.svg) |
+| QuerySmsTemplate  | 查询短信模板的审核状态 | ![Support](https://img.shields.io/badge/-支持-brightgreen.svg) |
 
 #### 2.1.5 回执消息
 
@@ -75,3 +75,4 @@ var result = await AliyunApiRequester.SendRequestAsync<SmsCommonResponse>(reques
 本模块针对一些业务场景，提供了封装的单例服务类，便于开发人员使用。
 
 TODO
+
