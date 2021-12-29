@@ -13,7 +13,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.*" />
         <PackageReference Include="Volo.Abp.Core" Version="$(AbpVersion)" />
         <PackageReference Include="Volo.Abp.Guids" Version="$(AbpVersion)" />
         <PackageReference Include="Volo.Abp.Json" Version="$(AbpVersion)" />
