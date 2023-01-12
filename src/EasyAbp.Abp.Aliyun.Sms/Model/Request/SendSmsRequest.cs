@@ -1,6 +1,6 @@
 using System.Net.Http;
-using Newtonsoft.Json;
 using EasyAbp.Abp.Aliyun.Common.Model;
+using Volo.Abp.Json;
 
 namespace EasyAbp.Abp.Aliyun.Sms.Model.Request
 {
@@ -19,18 +19,20 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request
         /// <summary>
         /// 向指定的号码发送短信。
         /// </summary>
+        /// <param name="jsonSerializer">JsonSerializer</param>
         /// <param name="phoneNumber">手机号码。</param>
         /// <param name="signName">短信签名。</param>
         /// <param name="templateCode">短信模版编码。</param>
         /// <param name="templateParam">短信模版内容。</param>
-        public SendSmsRequest(string phoneNumber,
+        public SendSmsRequest(
+            IJsonSerializer jsonSerializer,
+            string phoneNumber,
             string signName,
             string templateCode,
-            object templateParam) : this(phoneNumber,signName,templateCode,JsonConvert.SerializeObject(templateParam))
+            object templateParam) : this(phoneNumber, signName, templateCode, jsonSerializer.Serialize(templateParam))
         {
-
         }
-        
+
         /// <summary>
         /// 向指定的号码发送短信。
         /// </summary>
@@ -38,15 +40,16 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request
         /// <param name="signName">短信签名。</param>
         /// <param name="templateCode">短信模版编码。</param>
         /// <param name="templateParamJson">短信模版内容。</param>
-        public SendSmsRequest(string phoneNumber,
+        public SendSmsRequest(
+            string phoneNumber,
             string signName,
             string templateCode,
             string templateParamJson) : this()
         {
-            RequestParameters.Add("PhoneNumbers",phoneNumber);
-            RequestParameters.Add("SignName",signName);
-            RequestParameters.Add("TemplateCode",templateCode);
-            RequestParameters.Add("TemplateParam",templateParamJson);
+            RequestParameters.Add("PhoneNumbers", phoneNumber);
+            RequestParameters.Add("SignName", signName);
+            RequestParameters.Add("TemplateCode", templateCode);
+            RequestParameters.Add("TemplateParam", templateParamJson);
         }
     }
 }

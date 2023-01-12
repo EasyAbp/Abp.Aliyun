@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using EasyAbp.Abp.Aliyun.Common.Model;
-using Newtonsoft.Json;
+using Volo.Abp.Json;
 
 namespace EasyAbp.Abp.Aliyun.Sms.Model.Request
 {
@@ -14,7 +14,8 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request
             Method = HttpMethod.Get;
         }
 
-        public SendBatchSmsRequest(string phoneNumberJson,
+        public SendBatchSmsRequest(
+            string phoneNumberJson,
             string signNameJson,
             string templateCode,
             string templateParamJson,
@@ -27,15 +28,19 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Request
             AddParameter("SmsUpExtendCodeJson", smsUpExtendCodeJson);
         }
 
-        public SendBatchSmsRequest(IEnumerable<string> phoneNumbers,
+        public SendBatchSmsRequest(
+            IJsonSerializer jsonSerializer,
+            IEnumerable<string> phoneNumbers,
             IEnumerable<string> signNames,
             string templateCode,
             IEnumerable<object> templateParams,
-            string smsUpExtendCodeJson = null) : this(JsonConvert.SerializeObject(phoneNumbers),
-            JsonConvert.SerializeObject(signNames),
-            templateCode,
-            JsonConvert.SerializeObject(templateParams),
-            smsUpExtendCodeJson)
+            string smsUpExtendCodeJson = null) :
+            this(
+                jsonSerializer.Serialize(phoneNumbers),
+                jsonSerializer.Serialize(signNames),
+                templateCode,
+                jsonSerializer.Serialize(templateParams),
+                smsUpExtendCodeJson)
         {
         }
     }

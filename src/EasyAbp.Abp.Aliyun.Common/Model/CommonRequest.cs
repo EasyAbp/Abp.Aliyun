@@ -4,7 +4,6 @@ using System.Globalization;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
-using Newtonsoft.Json;
 
 namespace EasyAbp.Abp.Aliyun.Common.Model
 {
@@ -30,12 +29,12 @@ namespace EasyAbp.Abp.Aliyun.Common.Model
         {
             RequestParameters = new SortedDictionary<string, string>(StringComparer.Ordinal)
             {
-                {"Format", "json"},
-                {"SignatureMethod", "HMAC-SHA1"},
-                {"Version", "2017-05-25"},
-                {"SignatureVersion", "1.0"},
-                {"Timestamp", DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ")},
-                {"Action", ""}
+                { "Format", "json" },
+                { "SignatureMethod", "HMAC-SHA1" },
+                { "Version", "2017-05-25" },
+                { "SignatureVersion", "1.0" },
+                { "Timestamp", DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ") },
+                { "Action", "" }
             };
 
             IsSetCommonParameters = false;
@@ -47,7 +46,8 @@ namespace EasyAbp.Abp.Aliyun.Common.Model
         public virtual ICommonRequest SetCommonParameters(string accessKeyId, Guid signNonce)
         {
             if (!RequestParameters.ContainsKey("AccessKeyId")) RequestParameters.Add("AccessKeyId", accessKeyId);
-            if (!RequestParameters.ContainsKey("SignatureNonce")) RequestParameters.Add("SignatureNonce", signNonce.ToString());
+            if (!RequestParameters.ContainsKey("SignatureNonce"))
+                RequestParameters.Add("SignatureNonce", signNonce.ToString());
 
             IsSetCommonParameters = true;
             return this;
@@ -92,14 +92,6 @@ namespace EasyAbp.Abp.Aliyun.Common.Model
         }
 
         /// <summary>
-        /// 根据 <see cref="ICommonRequest.RequestParameters" /> 字典生成 HTTP 请求的 POST 查询参数。
-        /// </summary>
-        public virtual string GetPostString()
-        {
-            return JsonConvert.SerializeObject(RequestParameters);
-        }
-
-        /// <summary>
         /// 用于标识请求参数体是否准备好。
         /// </summary>
         public virtual bool IsReady()
@@ -118,7 +110,7 @@ namespace EasyAbp.Abp.Aliyun.Common.Model
             var bytes = Encoding.UTF8.GetBytes(srcStr);
             foreach (var @byte in bytes)
             {
-                var @char = (char) @byte;
+                var @char = (char)@byte;
                 // 如果值是 text 集合内的数据，则使用默认的值。
                 if (text.IndexOf(@char) >= 0)
                 {
@@ -127,7 +119,7 @@ namespace EasyAbp.Abp.Aliyun.Common.Model
                 else
                 {
                     stringBuilder.Append("%")
-                        .Append(string.Format(CultureInfo.InvariantCulture, "{0:X2}", (int) @char));
+                        .Append(string.Format(CultureInfo.InvariantCulture, "{0:X2}", (int)@char));
                 }
             }
 

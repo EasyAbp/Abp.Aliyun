@@ -12,7 +12,9 @@ namespace EasyAbp.Abp.Aliyun.Sms.Tests.RequestTests
         public async Task Should_Return_Code_OK()
         {
             // Arrange
-            var request = new SendBatchSmsRequest(new []{AbpAliyunSmsTestsConsts.TargetPhoneNumber}, 
+            var request = new SendBatchSmsRequest(
+                JsonSerializer,
+                new []{AbpAliyunSmsTestsConsts.TargetPhoneNumber}, 
                 new []{AbpAliyunSmsTestsConsts.CompanyName},
                 AbpAliyunSmsTestsConsts.TemplateCode, 
                 new[]{AbpAliyunSmsTestsConsts.TemplateParamJson});

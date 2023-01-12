@@ -2,24 +2,28 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 using Volo.Abp.DependencyInjection;
 using Volo.Abp.Guids;
 using EasyAbp.Abp.Aliyun.Common.Configurations;
 using EasyAbp.Abp.Aliyun.Common.Model;
+using Volo.Abp.Json;
 
 namespace EasyAbp.Abp.Aliyun.Common
 {
-    public class DefaultAliyunApiRequester : IAliyunApiRequester,ITransientDependency
+    public class DefaultAliyunApiRequester : IAliyunApiRequester, ITransientDependency
     {
+        private readonly IJsonSerializer _jsonSerializer;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly AbpAliyunOptions _abpAliyunOptions;
         private readonly IGuidGenerator _guidGenerator;
 
-        public DefaultAliyunApiRequester(IHttpClientFactory httpClientFactory,
+        public DefaultAliyunApiRequester(
+            IJsonSerializer jsonSerializer,
+            IHttpClientFactory httpClientFactory,
             IOptions<AbpAliyunOptions> options,
             IGuidGenerator guidGenerator)
         {
+            _jsonSerializer = jsonSerializer;
             _httpClientFactory = httpClientFactory;
             _guidGenerator = guidGenerator;
             _abpAliyunOptions = options.Value;
@@ -34,7 +38,8 @@ namespace EasyAbp.Abp.Aliyun.Common
         /// 请求的返回值类型，框架会自动将数据反序列化为指定的类型。
         /// </typeparam>
         /// <returns>请求的返回值数据。</returns>
-        public async Task<TResponse> SendRequestAsync<TResponse>(ICommonRequest request, string url) where TResponse : ICommonResponse
+        public async Task<TResponse> SendRequestAsync<TResponse>(ICommonRequest request, string url)
+            where TResponse : ICommonResponse
         {
             request.SetCommonParameters(_abpAliyunOptions.AccessKeyId, _guidGenerator.Create());
             request.SetSignature(_abpAliyunOptions.AccessKeySecret);
@@ -44,29 +49,37 @@ namespace EasyAbp.Abp.Aliyun.Common
             var client = _httpClientFactory.CreateClient();
 
             // 根据 HTTP 请求方法值，构造不同的参数值。
-            var httpRequestMessage = request.Method == HttpMethod.Get ? 
-                BuildHttpGet(request,url) : 
-                BuildHttpPost(request,url);
-            
+            var httpRequestMessage = request.Method == HttpMethod.Get
+                ? BuildHttpGet(request, url)
+                : BuildHttpPost(request, url);
+
             var result = await client.SendAsync(httpRequestMessage);
 
-            return JsonConvert.DeserializeObject<TResponse>(await result.Content.ReadAsStringAsync());
+            return _jsonSerializer.Deserialize<TResponse>(await result.Content.ReadAsStringAsync());
         }
 
-        private HttpRequestMessage BuildHttpGet(ICommonRequest request,string url)
+        private HttpRequestMessage BuildHttpGet(ICommonRequest request, string url)
         {
             var requestUrl = $"{url}?{request.GetQueryString()}";
             return new HttpRequestMessage(HttpMethod.Get, requestUrl);
         }
 
-        private HttpRequestMessage BuildHttpPost(ICommonRequest request,string url)
+        private HttpRequestMessage BuildHttpPost(ICommonRequest request, string url)
         {
             var httpRequest = new HttpRequestMessage(HttpMethod.Post, url)
             {
-                Content = new StringContent(request.GetPostString())
+                Content = new StringContent(ToPostString(request))
             };
 
             return httpRequest;
+        }
+
+        /// <summary>
+        /// 根据 <see cref="ICommonRequest.RequestParameters" /> 字典生成 HTTP 请求的 POST 查询参数。
+        /// </summary>
+        public virtual string ToPostString(ICommonRequest request)
+        {
+            return _jsonSerializer.Serialize(request.RequestParameters);
         }
     }
 }

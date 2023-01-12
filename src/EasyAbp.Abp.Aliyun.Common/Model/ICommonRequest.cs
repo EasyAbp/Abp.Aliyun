@@ -9,8 +9,8 @@ namespace EasyAbp.Abp.Aliyun.Common.Model
         /// <summary>
         /// 通过 <see cref="ICommonRequest"/> 构建的参数字典。
         /// </summary>
-        SortedDictionary<string,string> RequestParameters { get; }
-        
+        SortedDictionary<string, string> RequestParameters { get; }
+
         /// <summary>
         /// 请求的 Http 请求方式，参考 <see cref="HttpMethod"/> 定义的数据。
         /// </summary>
@@ -30,11 +30,6 @@ namespace EasyAbp.Abp.Aliyun.Common.Model
         /// 根据 <see cref="RequestParameters"/> 字典生成 HTTP 请求的 GET 查询参数。
         /// </summary>
         string GetQueryString();
-
-        /// <summary>
-        /// 根据 <see cref="RequestParameters"/> 字典生成 HTTP 请求的 POST 查询参数。
-        /// </summary>
-        string GetPostString();
 
         /// <summary>
         /// 用于标识请求参数体是否准备好。

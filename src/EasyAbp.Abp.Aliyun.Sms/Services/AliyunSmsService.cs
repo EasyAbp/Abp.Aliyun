@@ -7,15 +7,20 @@ using EasyAbp.Abp.Aliyun.Common.Services;
 using EasyAbp.Abp.Aliyun.Sms.Model.Request;
 using EasyAbp.Abp.Aliyun.Sms.Model.Response;
 using EasyAbp.Abp.Aliyun.Sms.Templates;
+using Volo.Abp.Json;
 
 namespace EasyAbp.Abp.Aliyun.Sms.Services
 {
     public class AliyunSmsService : BaseAliyunService
     {
+        private readonly IJsonSerializer _jsonSerializer;
         private readonly AbpAliyunSmsOptions _smsOptions;
 
-        public AliyunSmsService(IOptions<AbpAliyunSmsOptions> smsOptions)
+        public AliyunSmsService(
+            IJsonSerializer jsonSerializer,
+            IOptions<AbpAliyunSmsOptions> smsOptions)
         {
+            _jsonSerializer = jsonSerializer;
             _smsOptions = smsOptions.Value;
         }
 
@@ -29,7 +34,10 @@ namespace EasyAbp.Abp.Aliyun.Sms.Services
         /// </remarks>
         public async Task<SmsCommonResponse> SendMessageAsync(string phoneNumber, ISmsTemplate smsTemplate)
         {
-            return await AliyunApiRequester.SendRequestAsync<SmsCommonResponse>(new SendSmsRequest(phoneNumber,
+            return await AliyunApiRequester.SendRequestAsync<SmsCommonResponse>(
+                new SendSmsRequest(
+                    _jsonSerializer,
+                    phoneNumber,
                     smsTemplate.SignName,
                     smsTemplate.TemplateCode,
                     smsTemplate.TemplateContent),
@@ -44,7 +52,8 @@ namespace EasyAbp.Abp.Aliyun.Sms.Services
         /// <remarks>
         /// 具体 API 说明信息，可以参考阿里云官方文档: https://help.aliyun.com/document_detail/102364.html?spm=a2c4g.11186623.6.633.7e1d65f48NL2Rj。
         /// </remarks>
-        public async Task<SmsCommonResponse> SendBatchSmsAsync(IEnumerable<string> phoneNumbers, IEnumerable<ISmsTemplate> smsTemplates)
+        public async Task<SmsCommonResponse> SendBatchSmsAsync(IEnumerable<string> phoneNumbers,
+            IEnumerable<ISmsTemplate> smsTemplates)
         {
             var templates = smsTemplates.ToList();
 
@@ -52,12 +61,15 @@ namespace EasyAbp.Abp.Aliyun.Sms.Services
             {
                 throw new ArgumentNullException(nameof(smsTemplates), $"The {nameof(smsTemplates)} sequence is empty!");
             }
-            
+
             var signNames = templates.Select(t => t.SignName);
             var templateCode = templates.First().TemplateCode;
             var templateParams = templates.Select(t => t.TemplateContent);
 
-            return await AliyunApiRequester.SendRequestAsync<SmsCommonResponse>(new SendBatchSmsRequest(phoneNumbers,
+            return await AliyunApiRequester.SendRequestAsync<SmsCommonResponse>(
+                new SendBatchSmsRequest(
+                    _jsonSerializer,
+                    phoneNumbers,
                     signNames,
                     templateCode,
                     templateParams),
@@ -89,10 +101,12 @@ namespace EasyAbp.Abp.Aliyun.Sms.Services
         /// <remarks>
         /// 具体 API 说明信息，可以参考阿里云官方文档: https://help.aliyun.com/document_detail/102352.html?spm=a2c4g.11186623.6.635.550965f4WeL380。
         /// </remarks>
-        public async Task<QuerySendDetailsResponse> QuerySendDetailsAsync(int currentPage, int pageSize, string phoneNumber, DateTime sendDate, string bizId = null)
+        public async Task<QuerySendDetailsResponse> QuerySendDetailsAsync(int currentPage, int pageSize,
+            string phoneNumber, DateTime sendDate, string bizId = null)
         {
-            return await AliyunApiRequester.SendRequestAsync<QuerySendDetailsResponse>(new QuerySendDetailsRequest(phoneNumber,
-                sendDate.ToString("yyyyMMdd"),pageSize,currentPage,bizId),_smsOptions.EndPoint);
+            return await AliyunApiRequester.SendRequestAsync<QuerySendDetailsResponse>(new QuerySendDetailsRequest(
+                phoneNumber,
+                sendDate.ToString("yyyyMMdd"), pageSize, currentPage, bizId), _smsOptions.EndPoint);
         }
     }
 }

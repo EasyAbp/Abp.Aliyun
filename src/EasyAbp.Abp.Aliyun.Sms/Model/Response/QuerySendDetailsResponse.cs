@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 using EasyAbp.Abp.Aliyun.Common.Model;
 using Newtonsoft.Json;
 
@@ -22,6 +23,7 @@ namespace EasyAbp.Abp.Aliyun.Sms.Model.Response
     // ReSharper disable once InconsistentNaming
     public class SmsSendDetailDTOs
     {
+        [JsonPropertyName("SmsSendDetailDTO")]
         [JsonProperty("SmsSendDetailDTO")]
         public List<SmsSendDetailDto> Items { get; set; }
     }
