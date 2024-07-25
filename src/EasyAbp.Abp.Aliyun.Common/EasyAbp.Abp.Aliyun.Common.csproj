@@ -3,7 +3,7 @@
     <Import Project="..\..\common.props" />
     
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <RootNamespace>EasyAbp.Abp.Aliyun.Common</RootNamespace>
         <Description>ABP vNext阿里云SDK模块，公共设施库。</Description>
     </PropertyGroup>
